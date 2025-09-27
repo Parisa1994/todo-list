@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import TodoItem from "../TodoItem/TodoItem";
 import TodoInput from "../TodoInput/TodoInput";
+import TodoItem from "../TodoItem/TodoItem";
+import { Box, Typography } from "@mui/material";
 
 interface Todo {
   id: number;
@@ -26,9 +27,23 @@ const TodoList: React.FC = () => {
   };
 
   return (
-    <div>
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: "600px",
+        mx: "auto",
+        mt: 6,
+        p: 3,
+        borderRadius: 3,
+        boxShadow: 3,
+        bgcolor: "background.paper",
+      }}
+    >
+      <Typography variant="h4" mb={3} textAlign="center">
+        My Todo List
+      </Typography>
       <TodoInput onAdd={addTodo} />
-      <ul>
+      <Box component="ul" sx={{ listStyle: "none", p: 0, mt: 3 }}>
         {todos.map((todo) => (
           <TodoItem
             key={todo.id}
@@ -37,8 +52,8 @@ const TodoList: React.FC = () => {
             onToggle={() => toggleTodo(todo.id)}
           />
         ))}
-      </ul>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

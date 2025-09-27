@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "@/components/Button";
+import { Box, TextField, Button } from "@mui/material";
 
 interface TodoInputProps {
   onAdd: (text: string) => void;
@@ -19,16 +19,38 @@ const TodoInput: React.FC<TodoInputProps> = ({ onAdd }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Add a new todo"
-      />
-      <Button size="large" type="submit" variant="contained">
-        Add
-      </Button>
+    <form onSubmit={handleSubmit}>
+      <Box
+        display="flex"
+        alignItems="center"
+        gap={2}
+        maxWidth="500px"
+        width="100%"
+        mx="auto"
+      >
+        <TextField
+          variant="outlined"
+          size="medium"
+          placeholder="Add a new todo"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          sx={{
+            flex: 1,
+            py: 1.5,
+            "& .MuiInputBase-input": {
+              fontSize: "1rem",
+            },
+          }}
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          sx={{ px: 4, py: 1.5, fontSize: "1rem" }}
+        >
+          Add
+        </Button>
+      </Box>
     </form>
   );
 };
