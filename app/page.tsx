@@ -1,10 +1,21 @@
+"use client";
 import TodoList from "@/components/TodoList/TodoList";
+// @mui
+import { Container } from "@mui/material";
 
 export default function Home() {
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>My Todo List</h1>
+    <Container
+      sx={{
+        py: 12,
+        m: "auto",
+        maxWidth: 400,
+        minHeight: "100vh",
+        textAlign: "center",
+        justifyContent: "center",
+      }}
+    >
       <TodoList />
-    </div>
+    </Container>
   );
 }
