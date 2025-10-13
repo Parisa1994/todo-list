@@ -15,14 +15,22 @@ const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodo = (text: string) => {
-    setTodos([...todos, { id: Date.now(), text, done: false }]);
+    setTodos((prev) => [...prev, { id: Date.now(), text, done: false }]);
   };
 
   const toggleTodo = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, done: !todo.done } : todo
-      )
+    setTodos((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t))
+    );
+  };
+
+  const deleteTodo = (id: number) => {
+    setTodos((prev) => prev.filter((t) => t.id !== id));
+  };
+
+  const editTodo = (id: number, newText: string) => {
+    setTodos((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, text: newText } : t))
     );
   };
 
@@ -42,7 +50,9 @@ const TodoList: React.FC = () => {
       <Typography variant="h4" mb={3} textAlign="center">
         My Todo List
       </Typography>
+
       <TodoInput onAdd={addTodo} />
+
       <Box component="ul" sx={{ listStyle: "none", p: 0, mt: 3 }}>
         {todos.map((todo) => (
           <TodoItem
@@ -50,6 +60,8 @@ const TodoList: React.FC = () => {
             text={todo.text}
             done={todo.done}
             onToggle={() => toggleTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
+            onEdit={(newText) => editTodo(todo.id, newText)}
           />
         ))}
       </Box>
