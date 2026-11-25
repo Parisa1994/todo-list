@@ -1,4 +1,23 @@
-Todo List (Next.js)
+## Focus List
+
+A small, polished task manager built with Next.js. Add, complete, filter, and delete tasks; your list is saved locally in the browser.
+
+### Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+### Stack
+
+Next.js, React, TypeScript, Tailwind CSS, ESLint, Storybook, Vitest, and Playwright.
+
+---
+
+A minimal Next.js app scaffolded for fast front-end development with TypeScript, Tailwind CSS, ESLint, Storybook 9, and testing via Vitest + Playwright.
 A minimal Next.js app scaffolded for fast front-end development with TypeScript, Tailwind CSS, ESLint, Storybook 9, and testing via Vitest + Playwright.
 Tech versions (from the project): Next 15.5.3, React 19.1.0, TypeScript 5 (range), ESLint 9, Storybook 9.1.x, Tailwind 4, Vitest 3.2.x, Playwright 1.55.x.
 
