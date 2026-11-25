@@ -71,7 +71,7 @@ export default function Home() {
               <li key={task.id} className="group flex items-center gap-3 py-4">
                 <input aria-label={`Mark ${task.title} as complete`} type="checkbox" checked={task.done} onChange={() => setTasks((current) => current.map((item) => item.id === task.id ? { ...item, done: !item.done } : item))} className="h-5 w-5 cursor-pointer rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
                 <span className={`flex-1 text-base ${task.done ? "text-slate-400 line-through" : "text-slate-800"}`}>{task.title}</span>
-                <button aria-label={`Delete ${task.title}`} onClick={() => setTasks((current) => current.filter((item) => item.id !== task.id))} className="rounded-md px-2 py-1 text-slate-300 opacity-0 transition hover:bg-rose-50 hover:text-rose-600 focus:opacity-100 group-hover:opacity-100">×</button>
+                <button aria-label={`Delete ${task.title}`} onClick={() => setTasks((current) => current.filter((item) => item.id !== task.id))} className="rounded-md px-2 py-1 text-slate-500 transition hover:bg-rose-50 hover:text-rose-600">×</button>
               </li>
             ))}
             {visibleTasks.length === 0 && <li className="py-12 text-center text-slate-500">Nothing here yet. Enjoy the clear space.</li>}
